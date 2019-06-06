@@ -49,12 +49,16 @@
 <style lang="less" scoped>
     @bar-color: #f4f5f6;
     .home-topbar-wrapper {
-        height: 1.4rem;
-        line-height: 1.4rem;
+        height: 37px;
+        line-height: 37px;
         color: #505050;
-        font-size: 0.16rem;
+        font-size: 0.7rem;
         text-align: center;
-        position: relative;
+        /*position: relative;*/
+        width: 100%;
+        position: fixed;
+        z-index: 999;
+        /*top: 44px;*/
         background: @bar-color;
         .active {
             color: #f40;
@@ -70,8 +74,10 @@
         .top-menu-more-btn {
             position: absolute;
             right: 0;top: 0;
-            width: 1.4rem;
-            height: 0.8rem;
+            /*width: 1.4rem;*/
+            /*height: 0.8rem;*/
+            width: 24px;
+            height: 37px;
             background: @bar-color;
             z-index: 9;
             .list-shadow {
@@ -84,7 +90,8 @@
             }
             .cross {
                 width: 0.17rem;
-                height: 0.17rem;
+                /*height: 0.17rem;*/
+                height: 18px;
                 &:before, &:after {
                     position: absolute;
                     content: ' ';
@@ -98,6 +105,17 @@
             }
 
         }
+    }
+    .border-half-bottom:before {
+        content: "";
+        position: absolute;
+        transform-origin: 0 0;
+        transform: scale(.5);
+        width: 200%;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        border-bottom: 1px solid #ddd;
     }
     .df-c {
         display: flex;

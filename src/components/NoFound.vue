@@ -65,7 +65,7 @@
         margin: 140px auto 44px;
     }
     .title-1 {
-        font-size: 30px;
+        font-size: 18px;
         text-align: center;
         color: #666;
         font-weight: normal;
@@ -74,11 +74,11 @@
         background-color: #fff;
         color: #2a99ef;
         border: 1px solid #2a99ef;
-        border-radius: 12px;
-        width: 160px;
-        height: 58px;
-        font-size: 30px;
-        margin-top: 160px;
+        border-radius: 8px;
+        width: 100px;
+        height: 38px;
+        font-size: 18px;
+        margin-top: 100px;
     }
 </style>
 

@@ -21,7 +21,7 @@ const router = new VueRouter({
     ...routes, // 路由
     {
       path: '/',
-      component: _import('member/login/page'),
+      component: _import('app/page'),
       props: (route) => ({params: {...route.query}})
     },
     { path: '*', component: NotFound }

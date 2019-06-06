@@ -1,5 +1,5 @@
 <template>
-    <article class="home-wrapper">
+    <article class="home-wrapper main-container">
         <!-- 顶部 nav 导航 -->
         <TopNav></TopNav>
 
@@ -9,7 +9,7 @@
         </div>
 
         <!-- 中间 -->
-        <swiper ref="swiper-wrapper" id="swiper-container" @slideChangeTransitionEnd="end">
+        <swiper ref="swiper-wrapper" id="swiper-container" style="top: 37px;" @slideChangeTransitionEnd="end">
             <swiper-slide v-for="(news, index) in newsList" :key="index">
                 <section class="swiper-box">
                     <ul>
@@ -57,7 +57,7 @@
                             </div>
                         </li>
                     </ul>
-                    <!--<NoneData v-if="news.list&&news.list.length>0"></NoneData>-->
+                    <NoData v-if="news.list && news.list.length>0"></NoData>
                 </section>
             </swiper-slide>
         </swiper>
@@ -70,12 +70,14 @@
   import { swiper, swiperSlide } from 'vue-awesome-swiper'
   import { mapGetters } from 'vuex'
   import TopNav from './topnav/index.vue'
+  import NoData from '../../components/NoData'
 
   export default {
     components: {
       swiper,
       swiperSlide,
-      TopNav
+      TopNav,
+      NoData
     },
     created () {
       this.$store.dispatch('getHomeList', this.newsList[this.homeNewsIndex])
@@ -129,7 +131,7 @@
             overflow-y: scroll;
         }
         .item {
-            padding: 0.2rem 0.1rem;
+            padding: 0.2rem 0.6rem;
             h4 {
                 color: #f40;
             }
@@ -159,6 +161,11 @@
             }
         }
     }
+    .main-container {
+        width: 100%;
+        height: calc(100% - 1rem);
+        position: relative;
+    }
     .df-sb {
         display: flex;
         align-items: center;
@@ -168,4 +175,5 @@
         display: flex;
         align-items: center;
     }
+
 </style>

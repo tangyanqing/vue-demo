@@ -1,10 +1,11 @@
 <template>
-    <div>注册页面
+    <div class="result-container">
+        <h2>注册页面</h2>
+
     </div>
 </template>
 
 <script>
-  import action from './action';
   export default {
     name: "page",
     props: ['params'],
@@ -55,11 +56,13 @@
       // 'van-loading': Loading
     },
     methods: {
-      ...action
+      // ...action
     }
   }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
+    .result-container {
 
+    }
 </style>
