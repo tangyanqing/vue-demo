@@ -1,4 +1,10 @@
 const getters = {
+  // to do list
+  title: state => state.todolist.title,
+  items: state => state.todolist.items,
+  newItem: state => state.todolist.newItem,
+
+  // 其他
   sidebar: state => state.app.sidebar,
   device: state => state.app.device,
   userInfo: state => state.user.userInfo,
