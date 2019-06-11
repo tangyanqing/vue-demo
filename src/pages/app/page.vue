@@ -7,7 +7,8 @@
         <div class="download-link" @click="toNot()">404</div>
 
         <div class="download-link" @click="toReverse()">reverse 反转</div>
-        <div class="download-link" @click="toDo()">ToDoList</div>
+        <div class="download-link" @click="toDo()">ToDo</div>
+        <div class="download-link" @click="toDoList()">ToDo 改良</div>
 
         <div>
             <div>{{ count }}</div>
@@ -15,7 +16,7 @@
         </div>
         <div>
             <p>自定义指令</p>
-            <button v-append-text="`hello ${number}`" @click="number++">按钮</button>
+            <button v-append-text="`hello ${number}`" @click="number++">自加按钮 </button>
         </div>
     </div>
 </template>
@@ -99,6 +100,9 @@
         this.$router.push({ path: `/reverse` });
       },
       toDo: function() {
+        this.$router.push({ path: `/todo` });
+      },
+      toDoList: function() {
         this.$router.push({ path: `/todolist` });
       },
 

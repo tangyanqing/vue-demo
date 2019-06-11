@@ -26,6 +26,12 @@ export default [
   },
   {
     path: '/todolist',
+    component: _import('todolist/page'),
+    props: (route) => ({ params: { ...route.query, ...route.params } }),
+    meta: { canShare: true }
+  },
+  {
+    path: '/todo',
     component: _import('todo/page'),
     props: (route) => ({ params: { ...route.query, ...route.params } })
   },

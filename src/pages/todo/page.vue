@@ -20,7 +20,7 @@
         </ul>-->
 
         <ul>
-            <TodoItem v-for="item in list" :key="item" @delete="handleDelClick">
+            <TodoItem v-for="item in list" :key="item" @delete="handleDelClick(item)">
                 <template v-slot:item="itemProps">
                     <span slot="prefixIcon">前Icon--</span>
                     <span :style="{fontsize:'20px',color:itemProps.checked ? 'red' : 'blue'}">{{item}}</span>
@@ -65,8 +65,10 @@
       },
       handleDelClick(item) {
         // this.$emit('delete', this.item)
-        const index = this.list.findIndex(text=>text === text);
-        this.list.splice(index, 1);
+        // const index = this.list.findIndex(text => text === text);
+        // this.list.splice(index, 1);  // 删除第一项
+        // this.list.splice(this.list.indexOf(index),1)  // 删除最后一项
+        this.list.splice(this.list.indexOf(item),1)  // 删除当前项
       }
     },
 
