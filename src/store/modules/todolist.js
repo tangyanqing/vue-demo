@@ -1,9 +1,10 @@
 // import { Local } from '../../utils/storage'
 
-const STORAGE_KEY = 'todo-vue'
+// const STORAGE_KEY = 'todo-vue'
 const todo = {
   state: {
     title: 'this is a todo list',
+    newItem: '',
     items: [
       {
         label:'进行中',
@@ -16,22 +17,29 @@ const todo = {
         isEditing: true
       }
     ],
+
     // items: (function(){
-    //   return JSON.parse(window.localStorage.getItem(STORAGE_KEY) || [])
-    // }),
-    // items: fetch(),
-    newItem: ''
+    //   let items = JSON.parse(Local.get('items') || '[]')
+    //   items.forEach( news => {
+    //     window.console.log('news======1111'+news)
+    //     if(news.label) delete news.label
+    //   })
+    //   Local.set('newItem', JSON.stringify(items))
+    //   return items
+    // })(),
+
+    // items: () => JSON.parse(window.localStorage.getItem('items') || '[]'),
   },
   actions:{},
   mutations:{
 
   },
 
-  fetch () {
-    return JSON.parse(window.localStorage.getItem(STORAGE_KEY) || '[]')
-  },
-  save (items) {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(items))
-  }
+  // fetch () {
+  //   return JSON.parse(window.localStorage.getItem(STORAGE_KEY) || '[]')
+  // },
+  // save (items) {
+  //   window.localStorage.setItem(STORAGE_KEY, JSON.stringify(items))
+  // }
 }
 export default todo

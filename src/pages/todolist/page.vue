@@ -12,12 +12,13 @@
 
             <ul v-if="items.length" class="todo-item">
                 <li v-for="(item,index) in items" :key="index">
-                    <span v-if="item.isEditing" :class="{finished: item.isFinished}" @click="toggleFinish(item)">
+                    <span v-if="item.isEditing" :class="{finished: item.isFinished}" @click="toggleFinish(item)"
+                          :style="{color:( item.isFinished ? '#ccc' : '#000')}">
                         {{index+1}}、{{item.label}}
                     </span>
                     <input v-else type="text" v-model="item.label" v-todo-focus="item.label" @blur="unEdit(item)">
                     <!--<input v-else type="text" :value="item.label" v-todo-focus="item.label" @blur="unEdit(item)">-->
-                    <a @click="editItem(item)" class="todo-edit">{{item.isEditing ? '编辑' : '保存'}}</a>
+                    <a @click="editItem(item)" v-if="!item.isFinished" class="todo-edit">{{item.isEditing ? '编辑' : '保存'}}</a>
                     <a @click="deleteItem(item)" v-show="item.isEditing" class="todo-delete">删除</a>
                 </li>
             </ul>
@@ -42,7 +43,7 @@
     },
     data () {
       return {
-        // title: 'this is a todo list',
+        // title: 'this is a to do list',
         // items: [],
         // newItem: '',
         // isEditing: true
@@ -134,10 +135,12 @@
       }
     },
     watch: {
-      items: function(items) {
-          window.localStorage.setItem('todo-vue', JSON.stringify(items))
-      },
-      deep: true
+      items: {
+        handler: function(items) {
+          window.localStorage.setItem('items', JSON.stringify(items))
+        },
+        deep: true
+      }
     }
   }
 </script>
